@@ -10,80 +10,98 @@ public class CalculatorApp  {
     private static JTextField textField;
 
     public static void main(String[] args) {
+
         JFrame frame = new JFrame("Calculator");
         JPanel panel = new JPanel(null);
+        panel.setBackground(Color.DARK_GRAY);
         frame.getContentPane().add(panel);
-        textField = new JTextField();
 
-        // Setăm dimensiunile preferate ale câmpului de text
-        textField.setBounds(10, 10, 200, 50);
+        textField = new JTextField();
+        textField.setBounds(30, 80, 460, 80);
         textField.setEditable(false);
-        textField.setFont(new Font("Arial",Font.PLAIN,20));
+        textField.setFont(new Font("Arial",Font.PLAIN,40));
         panel.add(textField);
+
         JButton add = new JButton("+");
-        add.setBounds(450,500,100,80);
+        add.setBounds(390,500,100,80);
         add.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(add);
+
         JButton subtract = new JButton("-");
-        subtract.setBounds(450,400,100,80);
+        subtract.setBounds(390,400,100,80);
         subtract.setFont(new Font("Arial",Font.BOLD, 80));
         panel.add(subtract);
+
         JButton multiply = new JButton("X");
-        multiply.setBounds(450,300,100,80);
+        multiply.setBounds(390,300,100,80);
         multiply.setFont(new Font("Arial",Font.BOLD, 40));
         panel.add(multiply);
+
         JButton division = new JButton("/");
-        division.setBounds(450,200,100,80);
+        division.setBounds(390,200,100,80);
         division.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(division);
+
         JButton equal = new JButton("=");
-        equal.setBounds(450,600,100,80);
+        equal.setBounds(390,600,100,80);
         equal.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(equal);
+
         JButton zero = new JButton("0");
         zero.setBounds(30,600,100,80);
         zero.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(zero);
+
         JButton one = new JButton("1");
         one.setBounds(30,500,100,80);
         one.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(one);
+
         JButton two = new JButton("2");
         two.setBounds(150,500,100,80);
         two.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(two);
+
         JButton three = new JButton("3");
         three.setBounds(270,500,100,80);
         three.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(three);
+
         JButton four = new JButton("4");
         four.setBounds(30,400,100,80);
         four.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(four);
+
         JButton five = new JButton("5");
         five.setBounds(150,400,100,80);
         five.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(five);
+
         JButton six = new JButton("6");
         six.setBounds(270,400,100,80);
         six.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(six);
+
         JButton seven = new JButton("7");
         seven.setBounds(30,300,100,80);
         seven.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(seven);
+
         JButton eight = new JButton("8");
         eight.setBounds(150,300,100,80);
         eight.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(eight);
+
         JButton nine = new JButton("9");
         nine.setBounds(270,300,100,80);
         nine.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(nine);
+
         JButton delete  = new JButton("C");
         delete.setBounds(30,200,100,80);
         delete.setFont(new Font("Arial",Font.BOLD, 50));
         panel.add(delete);
+
         JButton dot = new JButton(".");
         dot.setBounds(150,600,100,80);
         dot.setFont(new Font("Arial",Font.BOLD, 60));
@@ -106,12 +124,13 @@ public class CalculatorApp  {
         division.addActionListener(e -> setOperator('/'));
 
         equal.addActionListener(e -> calculateResult());
-
+        dot.addActionListener(e -> appendDot());
         delete.addActionListener(e -> clear());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600,800);
+        frame.setSize(530,750);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -122,6 +141,10 @@ public class CalculatorApp  {
         } else {
             textField.setText(textField.getText() + number);
         }
+    }
+
+    private static void appendDot() {
+        textField.setText(textField.getText() + ".");
     }
 
     private static void setOperator(char op) {
