@@ -2,7 +2,7 @@
   <artifact type="jar" name="CalculatorTest:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/CalculatorTest_jar</output-path>
     <root id="archive" name="CalculatorTest.jar">
-      <element id="module-output" name="CalculatorTest" />
+      <element id="module-output" name="CalculatorApp" />
     </root>
   </artifact>
 </component>
